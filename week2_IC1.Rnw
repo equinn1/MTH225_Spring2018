@@ -1,0 +1,61 @@
+\documentclass{article}
+
+\begin{document}
+
+MTH225 Week 2 In-class exercise 1
+
+Bare-bones descriptive statistics for plasma retinol data
+
+First, read the data
+<<>>=
+df <- read.table("http://ftp.uni-bayreuth.de/math/statlib/datasets/Plasma_Retinol",skip=30,nrow=315)
+@
+
+Now replace the generated column names \texttt{V1,V2,\ldots,V14} with meaningful names.
+
+<<>>=
+
+colnames(df) = c('AGE','SEX','SMOKSTAT', 'QUETELET','VITUSE','CALORIES','FAT','FIBER',
+              'ALCOHOL','CHOLESTEROL','BETADIET','RETDIET','BETAPLASMA','RETPLASMA')
+@
+
+Now use the summary function for a quick overview of the descriptive statistics for this data.
+
+<<>>=
+summary(df)
+@
+
+Compute the standard deviation of \texttt{BETAPLASMA}
+
+<<>>=
+sd(df$BETAPLASMA)
+@
+
+Compute the interquartile range of $\texttt{BETAPLASMA}
+
+<<>>=
+IQR(df$BETAPLASMA)
+@
+
+Produce a boxplot
+
+<<>>=
+boxplot(df$BETAPLASMA)
+@
+
+Boxplots by smoking status
+
+<<>>=
+boxplot(df$BETAPLASMA ~ as.factor(df$SMOKSTAT))
+@
+
+In-class exercise:  Repeat the above steps for \texttt{BETADIET}.  You can put the code in a single R chunk.
+
+<<>>
+#Code goes here
+@
+
+<<>>=
+Sys.info()[["user"]]
+@
+\end{document}
