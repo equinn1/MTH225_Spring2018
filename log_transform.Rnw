@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\begin{document}
+
+
+Get 100 obserbvations from a standard normal (mean=0, sd=1)
+
+<<>>=
+N=200                   #set the number of observations to generate
+
+y = rnorm(N)            #generate N independed standard normal random variables
+@
+
+Show a boxplot of the data
+
+<<>>=
+boxplot(y)
+@
+
+Show a histogram of the data:
+
+<<>>=
+hist(y)
+@
+
+Convert to lognormal
+<<>>=
+y2 = exp(y)
+
+boxplot(y2)
+
+hist(y2)
+@
+
+\end{document}
